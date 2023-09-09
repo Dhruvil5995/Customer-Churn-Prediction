@@ -1,0 +1,112 @@
+5. Hand on exercise
+
+
+
+1)  mlflow churnn model registration
+
+This code snippet showcases the steps for using PyCaret and MLFlow in a machine learning project for customer churn prediction. Here's a breakdown of the code:
+
+Installing Required Packages: The script starts with installing mlflow version 2 using the pip command.
+
+Setting Environment Variables: The os.environ lines set environment variables for MLFlow tracking. These variables include the MLFlow tracking username, password, and the tracking URI, which in this case, is a DagsHub repository for customer churn prediction.
+
+Importing Libraries: The necessary libraries os, mlflow, pycaret, and pandas are imported.
+
+Reading Data: The dataset is read from a CSV file named 'final_data.csv' and stored in a Pandas DataFrame.
+
+PyCaret Setup: The setup function from PyCaret's classification module is used to set up the data preprocessing pipeline. The target variable is set to 'Churn', session ID is set to 123, and an experiment name 'churn1' is defined. Also, the 'customerID' column is specified as an ignored feature, and experiment logging is enabled.
+
+Comparing Models: The compare_models function is called to compare and evaluate various classification models. The best-performing model is returned.
+
+Model Evaluation and Visualization: The plot_model function is used to create different visualizations to evaluate the model performance. plot = 'auc' generates an AUC curve, plot = 'confusion_matrix' displays a confusion matrix, plot = 'boundary' shows decision boundaries, and plot = 'feature' presents feature importance.
+
+Saving Model: The best-performing model is saved using the save_model function with the name 'model' in the 'outputs' directory.
+
+Overall, this code demonstrates how to set up a machine learning pipeline using PyCaret, evaluate and visualize model performance, and save the trained model using MLFlow, with a specific focus on customer churn prediction.
+
+
+2) data download
+
+This code snippet pertains to preprocessing and preparing customer churn data using Python and Pandas. Here's an overview of each step:
+
+Data Loading and Saving:
+
+The code starts by reading data from a remote CSV file using the URL provided.
+The loaded data is then saved locally as 'raw_data.csv' within a 'data' directory.
+Data Type Check:
+
+The data types of the columns in the DataFrame are checked using the dtypes attribute.
+Replacing Blank Values:
+
+The 'TotalCharges' column is checked for blanks (empty strings) and replaced with NumPy's NaN values.
+The column is then converted to the 'float64' data type.
+Checking Missing Values:
+
+The code checks for missing values in the DataFrame using the isnull().sum() function.
+Visualizing Target Balance:
+
+The balance of the target variable 'Churn' is visualized by plotting a bar chart using the value_counts() function.
+Final Data Saving:
+
+The processed data is then saved as 'final_data.csv' within the 'data' directory.
+The to_csv() function is used with the argument index = False to prevent writing row indices to the CSV file.
+Overall, this code demonstrates the steps involved in 
+loading, preprocessing, and saving customer churn data, 
+including checking data types, handling missing values,
+ visualizing target balance, and generating a final processed dataset.
+
+
+
+3) Churn model development
+
+
+This code snippet demonstrates how to use PyCaret in conjunction with MLFlow to set up a classification pipeline for customer churn prediction. Here's a breakdown of the code:
+
+Installing Required Packages: The script starts with installing mlflow version 2 using the pip command.
+
+Importing Libraries: Libraries pycaret, mlflow, and pandas are imported. mlflow.set_tracking_uri is typically used to set up the MLFlow tracking server's URL.
+
+Reading Data: The dataset is read from a local CSV file named 'raw_data.csv' and stored in a Pandas DataFrame.
+
+PyCaret Setup: The setup function from PyCaret's classification module is used to set up the data preprocessing pipeline. The target variable is set to 'Churn', session ID is set to 123, and an experiment name 'churn1' is defined. The 'customerID' column is specified as an ignored feature, and experiment logging is enabled.
+
+Comparing Models: The compare_models function is called to compare and evaluate various classification models. The best-performing model is returned.
+
+Model Evaluation and Visualization: The plot_model function is used to create different visualizations to evaluate the model's performance. plot = 'auc' generates an AUC curve, plot = 'confusion_matrix' displays a confusion matrix, plot = 'boundary' shows decision boundaries, and plot = 'feature' presents feature importance.
+
+Saving Model: The best-performing model is saved using the save_model function with the name 'model' in the 'outputs' directory.
+
+Starting MLFlow UI: The command !mlflow ui is used to start the MLFlow UI, allowing you to access the web interface locally at http://localhost:5000.
+
+This code showcases a complete process, from setting up a classification pipeline using PyCaret to visualizing model performance and utilizing MLFlow's UI for experiment tracking and management.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
